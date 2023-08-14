@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeset:
+      id: 1
+      author: James
+#  - include:
+#      file: "db/changelog/diffs/2021-02-26T09-28-37Z-changelog.yaml"
+#      relative_to_changelog_file: false
+#  - include:
+#      file: "db/changelog/diffs/2021-03-04T14-50-45Z-changelog.yaml"
+#      relative_to_changelog_file: false
+#  - include:
+#      file: "db/changelog/diffs/2021-03-05T13-22-54Z-changelog.yaml"
+#      relative_to_changelog_file: false

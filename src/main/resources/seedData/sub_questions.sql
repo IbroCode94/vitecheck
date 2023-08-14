@@ -1,0 +1,3 @@
+INSERT INTO survey_question(required,id,name,label,parent_answer_id,sort_order,tooltip,section_id,question_type) VALUES (true, 4,'Pregnant','Are you pregnant?',2,2,NULL,1,0);
+INSERT INTO survey_question(required,id,name,label,parent_answer_id,sort_order,tooltip,section_id,question_type) VALUES (true, 14,'Allergy Details','Please select which foods are problematic',34,8,NULL,2,1);
+INSERT INTO survey_question(required,id,name,label,parent_answer_id,sort_order,tooltip,section_id,question_type) VALUES (true, 19,'Genetic Testing Results','Has genetic testing identified an increased need of any of the following?',51,8,NULL,3,1);

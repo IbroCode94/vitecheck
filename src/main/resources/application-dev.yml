@@ -1,0 +1,68 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  jpa:
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+    liquibase:
+      default-schema: vitcheck
+      change-log: classpath:db/changelog/db.changelog-master.yaml
+      enabled: true
+      drop-first: false
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+#    url: "jdbc:postgresql://ec2-54-162-119-125.compute-1.amazonaws.com:5432/d3gm0o843hns63"
+    url: jdbc:postgresql://localhost:5444/vitcheckDB
+    username: vitcheck_admin
+    password: V1tch3ck!
+#    username: fhwdzldgonzdob
+#    password: f67079b129eb82310a7f360aa0ba8b3a60e93c6ad42f2e8b8e192cbc7012eac0
+    initialization-mode: never
+    data: classpath:seedData/nutrients.sql, classpath:seedData/medications.sql, classpath:seedData/medication_interactions.sql, classpath:seedData/survey.sql, classpath:seedData/questions.sql, classpath:seedData/answers.sql, classpath:seedData/sub_questions.sql, classpath:seedData/sub_answers.sql, classpath:seedData/answer_interactions.sql
+
+  mail:
+    default-encoding: UTF-8
+    smtp:
+        auth: true
+        connectiontimeout: 5000
+        timeout: 5000
+        writetimeout: 5000
+        starttls:
+          enable: true
+vitcheck:
+  email:
+    enabled: true
+    security:
+      aes-encryption-key: HLyA1ZaklP8wYHUrZXEKGQZwVXFopGvxY3hYV0SnhP4=
+      aes-encryption-iv: feB62n31VV/7o1lIGn4O0Q==
+  integration:
+    crm:
+      klaviyo:
+        apiEndpoint: https://a.klaviyo.com/api
+      enabled: true
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+
+logging:
+  level:
+    org:
+      springframework:
+        security=DEBUG:
+security:
+  allowedOrigins: ${ALLOWED_CORS_ORIGINS:http://localhost:4000,http://localhost:4200}
+#security:
+#  allowedOrigins:
+#    - http://localhost:4000
+#    - http://localhost:4200
+
+config:
+  stopBubbling: true

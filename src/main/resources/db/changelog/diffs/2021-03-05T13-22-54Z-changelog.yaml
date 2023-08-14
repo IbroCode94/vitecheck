@@ -1,0 +1,68 @@
+databaseChangeLog:
+- changeSet:
+    id: 1614950579626-4
+    author: james (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: calculated_nutrient_interactionPK
+            name: id
+            type: BIGINT
+        - column:
+            name: evidence
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: score
+            type: FLOAT4
+        - column:
+            constraints:
+              nullable: false
+            name: nutrient_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: survey_submission_id
+            type: UUID
+        tableName: calculated_nutrient_interaction
+- changeSet:
+    id: 1614950579626-5
+    author: james (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: survey_submission_id, nutrient_id
+        constraintName: UK5swg4m7bp0a7ma0rwfbec6oj2
+        tableName: calculated_nutrient_interaction
+- changeSet:
+    id: 1614950579626-6
+    author: james (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: survey_submission_id
+        baseTableName: calculated_nutrient_interaction
+        constraintName: FK3jg8mlffm7ntxxes30hyhjegm
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: survey_submission
+        validate: true
+- changeSet:
+    id: 1614950579626-7
+    author: james (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: nutrient_id
+        baseTableName: calculated_nutrient_interaction
+        constraintName: FKmq0uw685d62fyukc17y0xwjwp
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: nutrient
+        validate: true

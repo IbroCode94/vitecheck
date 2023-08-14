@@ -1,0 +1,12 @@
+databaseChangeLog:
+- changeSet:
+    id: 1614331723203-4
+    author: james (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: help_text
+            type: varchar(5000)
+        tableName: survey_question
+

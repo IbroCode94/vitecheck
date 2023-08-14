@@ -1,0 +1,35 @@
+{
+  collectionByHandle(handle: "vitcheck") {
+    id
+        title
+        handle
+        products(first: 20) {
+          edges {
+            node {
+              id
+              handle
+              description
+              metafields(first: 10, namespace: "vitcheck") {
+                edges {
+                  node {
+                    key
+                    namespace
+                    value
+                  }
+                }
+              }
+              variants(first: 10) {
+                edges {
+                  node {
+                    title
+                    id
+                    availableForSale
+                  }
+                }
+              }
+              title
+            }
+          }
+        }
+  }
+}

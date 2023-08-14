@@ -1,0 +1,32 @@
+spring:
+  config:
+    activate:
+      on-profile: production
+  mail:
+    default-encoding: UTF-8
+    smtp:
+      auth: true
+      connectiontimeout: 5000
+      timeout: 5000
+      writetimeout: 5000
+      starttls:
+        enable: true
+vitcheck:
+  email:
+    enabled: true
+    security:
+      aes-encryption-key: ${SMTP_ENCRYPTION_KEY:HLyA1ZaklP8wYHUrZXEKGQZwVXFopGvxY3hYV0SnhP4=}
+      aes-encryption-iv: ${SMTP_ENCRYPTION_IV:feB62n31VV/7o1lIGn4O0Q==}
+  integration:
+    crm:
+      klaviyo:
+        apiEndpoint: ${KLAVIYO_API_ENDPOINT:https://a.klaviyo.com/api}
+      enabled: ${CRM_ENABLED:true}
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+
+security:
+  allowedOrigins: ${ALLOWED_CORS_ORIGINS}

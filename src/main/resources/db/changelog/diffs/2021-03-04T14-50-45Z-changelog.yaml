@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 1614869450123-4
+    author: james (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: archived
+            type: timestamp
+        tableName: survey_question
